@@ -1,0 +1,44 @@
+plugins {
+    id 'nu.studer.jooq' version '2.0.4'
+}
+
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.jooq:jooq'
+    jooqRuntime 'mysql:mysql-connector-java:5.1.3'
+}
+
+jooq {
+    version = '3.9.1'
+    edition = 'OSS'
+    sample(sourceSets.main) {
+        jdbc {
+            driver = 'com.mysql.jdbc.Driver'
+           url = 'jdbc:mysql://127.0.0.1:3306'
+            user = 'root'
+            password = 'yyy555'
+        }
+        generator {
+            name = 'org.jooq.util.DefaultGenerator'
+            database {
+                includes = 'user_service_demo.*'
+            }
+            generate {
+            	daos = 'true'
+            	interfaces = 'true'
+            }
+            target {
+                packageName = 'com.userservice.demo.schema.generated'
+                directory = 'src/main/java'
+            }
+        }
+    }
+}
+
+// removes the task dependency from compileJava to generateSampleJooqSchemaSource
+project.tasks.getByName('compileJava').dependsOn -= 'generateSampleJooqSchemaSource'

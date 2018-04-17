@@ -1,0 +1,13 @@
+{
+    "groupId" : "com.yyk.userservicedemo",
+    "artifactId" : "userservicedemo-api-Java",
+    "artifactVersion" : "1.0.0",
+
+    "interfaceOnly" : "true",
+    "library" : "spring-boot",
+    "invokerPackage" : "com.yyk.userservicedemo.generated.client",
+    "modelPackage" : "com.yyk.userservicedemo.generated.client.model",
+    "apiPackage" : "com.yyk.userservicedemo.generated.client.api",
+    "dateLibrary" : "java8",
+    "useTags" : "true"
+}

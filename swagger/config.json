@@ -1,0 +1,10 @@
+{
+    "groupId" : "com.yyk",
+    "artifactId" : "userservicedemo-client-Java",
+    "artifactVersion" : "1.0.0",
+
+    "library" : "feign",
+    "invokerPackage" : "com.yyk.userservicedemo.generated.client",
+    "modelPackage" : "com.yyk.userservicedemo.generated.client.model",
+    "apiPackage" : "com.yyk.userservicedemo.generated.client.api"
+}

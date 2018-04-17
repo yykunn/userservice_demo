@@ -1,0 +1,51 @@
+swagger: '2.0'
+info:
+  description: Api for user
+  version: 1.0.0
+  title: login&register
+schemes:
+  - https
+basePath: /
+produces:
+  - application/json
+paths:
+  '/user/{user_id}':
+    parameters:
+      - name: user_id
+        in: path
+        type: integer
+        required: true
+    get:
+      summary: get user information
+      operationId: getUserInfo
+      tags:
+        - user_info
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserInfoRes'
+
+definitions:
+  UserInfoRes:
+    type: object
+    properties:
+      status_code:
+        type: integer
+      msg:
+        type: string
+      data:
+        $ref: '#/definitions/UserInfo'
+  UserInfo:
+    type: object
+    properties:
+      user_id:
+        type: integer
+      name:
+        type: string
+      company:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
